@@ -31,15 +31,13 @@ for i in range(31):
         merged_data = pd.concat([merged_data, data])
 
 # Drop the "Unnamed: 0" column
-#merged_data = merged_data.drop('Unnamed: 0', axis=1)
+# merged_data = merged_data.drop('Unnamed: 0', axis=1)
 
 # Merge the "first name" and "last name" columns into a new "Full Name" column and
 # insert it at the start of the DataFrame
 merged_data.insert(1, 'Full Name', merged_data['firstname'] + ' ' + merged_data['surname'])
 # Drop the first and last name columns
-merged_data = merged_data.drop(['firstname', 'surname'], axis=1)
-
-
+merged_data = merged_data.drop(['firstname', 'surname'], axis = 1)
 
 # Write the merged data to a CSV file
 merged_data.to_csv(os.path.join(DATA_PATH, f"{subject_name}_data.csv"), index = False)
@@ -51,9 +49,6 @@ pe_data = CURR_DIR_PATH + '/data/attendance_data-1/pe_data.csv'
 math_data = CURR_DIR_PATH + '/data/attendance_data-1/math_data.csv'
 physics_data = CURR_DIR_PATH + '/data/attendance_data-1/physics_data.csv'
 
-
-
-
 # read the data from the file and print it
 with open(biology_data, 'r') as file:
     data = file.read()
@@ -61,3 +56,8 @@ with open(biology_data, 'r') as file:
 
 # print a message to the console to indicate that the file has been saved
 print(f"Merging and saving complete for {subject_name}!")
+
+
+#create a read me file and write some text to it to explain what the going on in the project
+with open('README.md', 'w') as file:
+    file.write('This is a readme file')
